@@ -4,12 +4,12 @@
 	margin-right: auto;
 }
 
-.homepage-blog {
+#homepage-blog {
   width: 50%;
   float: left;
 }
 
-.homepage-portfolio {
+#homepage-portfolio {
   width: 50%;
   float: right;
 }

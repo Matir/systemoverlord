@@ -155,8 +155,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "sysoverlord",
         "USER": "sysoverlord",
-        "PASSWORD": "sys0v3rl0rd",
-        "HOST": "",
+        "PASSWORD": "vec3taef0tai2waiXaec",
+        "HOST": "localhost",
         "PORT": "",
     }
 }
@@ -180,23 +180,22 @@ PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_DIRNAME
 
 # URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
 STATIC_URL = "/static/"
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+STATIC_ROOT = "/srv/sysoverlord/static/"
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = STATIC_URL + "media/"
+MEDIA_URL = "/media/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+MEDIA_ROOT = "/srv/sysoverlord/media/"
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
@@ -207,6 +206,9 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
+ALLOWED_HOSTS = ['systemoverlord.com']
+BLOG_URLS_DATE_FORMAT = 'day'
+BLOG_USE_FEATURED_IMAGE = True
 
 ################
 # APPLICATIONS #
@@ -315,6 +317,24 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 #     "DB_PASS": "", # Live database password
 #     "ADMIN_PASS": "", # Live admin user password
 # }
+
+######
+# CACHING
+######
+
+CACHE_MIDDLEWARE_SECONDS = 60
+
+CACHE_MIDDLEWARE_KEY_PREFIX = "%(proj_name)s"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
+        "LOCATION": "127.0.0.1:11211",
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
 
 
 ##################
