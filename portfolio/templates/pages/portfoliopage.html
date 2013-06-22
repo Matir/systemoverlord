@@ -1,0 +1,18 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+
+{% editable page.portfoliopage.content %}
+{{ page.portfoliopage.content|richtext_filter|safe }}
+{% endeditable %}
+{% if page.portfoliopage.attachments.all %}
+<em>Attachments</em>
+<ul>
+	{% for attachment in page.portfoliopage.attachments.all %}
+		<li><a href="{{ attachment.attachment.url }}">{{ attachment.title }}</a></li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
