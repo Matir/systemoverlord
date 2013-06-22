@@ -1,0 +1,38 @@
+.img-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.homepage-blog {
+  width: 50%;
+  float: left;
+}
+
+.homepage-portfolio {
+  width: 50%;
+  float: right;
+}
+
+.blog-byline-container {
+  overflow: hidden;
+}
+
+h6.blog-byline {
+  float: left;
+  margin-top: 5px;
+}
+
+.blog-commentsocial {
+  float: right;
+  width: 300px;
+}
+
+.blog-commentcount {
+  float: left;
+  display: block;
+}
+
+.blog-social {
+  float: right;
+}

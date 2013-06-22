@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load blog_tags i18n portfolio_tags %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active"><span class="divider">/</span>{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+<!-- Recent blog posts -->
+<div id='homepage-blog'>
+{% blog_recent_posts 8 as recent_posts %}
+{% if recent_posts %}
+  <h3>Recent Posts</h3>
+  <ul class='recent-posts'>
+    {% for recent_post in recent_posts %}
+      <li><a href="{{ recent_post.get_absolute_url }}"
+          ><strong>{{ recent_post.title }}</strong></a><br />
+          <small class='blog-small'>
+          [{{ recent_post.categories.all|join:', ' }}]<br />
+      	  Posted: {{ recent_post.publish_date|timesince }} ago
+          </small></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</div>
+<!-- Promoted Portfolio -->
+<div id='homepage-portfolio'>
+{% promoted_portfolio as portfolio %}
+{% if portfolio %}
+  <h3>Portfolio</h3>
+  <ul class='portfolio'>
+    {% for entry in portfolio %}
+      <li><a href="{{ entry.get_absolute_url }}"
+          ><strong>{{ entry.title }}</strong></a><br />
+          <small>{{ entry.summary }}</small></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</div>
+{% endblock %}
