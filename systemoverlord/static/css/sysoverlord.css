@@ -36,3 +36,47 @@ h6.blog-byline {
 .blog-social {
   float: right;
 }
+
+a.brand {
+  font-size: 180%;
+}
+
+.nav-collapse div.form-group {
+  display: inline;
+}
+
+.nav-collapse div.form-group input,
+.nav-collapse div.form-group select {
+  width: 160px;
+  display: inline;
+  height: auto;
+}
+
+.navbar-fixed-top .nav-collapse {
+  float: right;
+  width: 565px;
+}
+
+.navbar-fixed-top .navbar-text {
+  float: left;
+  padding: 0;
+}
+
+.tree .active a {
+  background-color: #33b5e5;
+}
+
+footer {
+  background-color: #000;
+  text-align: center;
+  font-size: 80%;
+}
+
+.form-group input {
+  height: auto !important;
+}
+
+.form-actions {
+  background-color: transparent;
+  border: none;
+}
