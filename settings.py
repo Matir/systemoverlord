@@ -123,6 +123,7 @@ USE_I18N = False
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = "8ac5b172-6b33-45ab-9d3c-d4eb083d45a978987613-cdde-4adf-a711-d8fb2e3e5500da7a36bb-a112-4fee-b365-59719c376e3e"
+NEVERCACHE_KEY = "1f922828-4a35-4a33-84e6-18792f925225a38abb15-f5f7-4a7e-8e3a-4085423c4421a38abb15-f5f7-4a7e-8e3a-4085423c4421"
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -144,6 +145,10 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+# Security options
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 #############
@@ -287,7 +292,7 @@ PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 
 # These will be added to ``INSTALLED_APPS``, only if available.
 OPTIONAL_APPS = (
-    "debug_toolbar",
+#    "debug_toolbar",
     "django_extensions",
     "compressor",
     PACKAGE_NAME_FILEBROWSER,
@@ -296,7 +301,7 @@ OPTIONAL_APPS = (
 
 # pagedown settings
 RICHTEXT_WIDGET_CLASS = 'mezzanine_pagedown.widgets.PageDownWidget'
-RICHTEXT_FILTER = 'mezzanine_pagedown.filters.codehilite'
+RICHTEXT_FILTERS = ['mezzanine_pagedown.filters.codehilite']
 RICHTEXT_FILTER_LEVEL = 3
 PAGEDOWN_SERVER_SIDE_PREVIEW = True
 
