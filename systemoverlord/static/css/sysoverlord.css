@@ -124,3 +124,16 @@ footer {
   margin-left: -10px;
   list-style-type: circle;
 }
+
+.right .panel ul.tag-cloud {
+  margin-left: 0;
+  padding-left: 2px;
+}
+
+.right .panel ul.tag-cloud li {
+  list-style-type: none;
+  white-space: nowrap;
+  display: inline;
+  margin-left: 0;
+  padding-right: 4px;
+}
