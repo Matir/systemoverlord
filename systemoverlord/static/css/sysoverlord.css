@@ -80,3 +80,25 @@ footer {
   background-color: transparent;
   border: none;
 }
+
+.pagination li {
+  list-style: none;
+  display: inline;
+}
+
+.pagination .page-info {
+  display: block;
+}
+
+.disabled,
+.disabled a {
+  color: #999;
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
