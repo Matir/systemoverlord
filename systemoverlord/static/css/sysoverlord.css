@@ -137,3 +137,7 @@ footer {
   margin-left: 0;
   padding-right: 4px;
 }
+
+table.codehilitetable {
+  width: 100%;
+}
