@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load blog_tags i18n portfolio_tags %}
+{% load blog_tags i18n portfolio_tags so_tags %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% endblock %}
@@ -20,7 +20,7 @@
           ><strong>{{ recent_post.title }}</strong></a><br />
           <small class='blog-small'>
           [{{ recent_post.categories.all|join:', ' }}]<br />
-      	  Posted: {{ recent_post.publish_date|timesince }} ago
+      	  Posted: {{ recent_post.publish_date|optional_timesince }}
           </small></li>
     {% endfor %}
   </ul>
