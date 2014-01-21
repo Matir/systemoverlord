@@ -2,7 +2,7 @@ import datetime
 
 from django.conf import settings
 from django.utils import timesince
-from django.utils.timezone import is_aware, utc
+from django.utils import timezone
 from mezzanine import template
 
 register = template.Library()
@@ -19,8 +19,9 @@ def optional_timesince(d):
   if not isinstance(d, datetime.datetime):
     d = datetime.datetime(d.year, d.month, d.day)
 
-  now = datetime.datetime.now(utc if is_aware(d) else None)
+  now = datetime.datetime.now(timezone.utc if timezone.is_aware(d) else None)
   
   if now - d > limit:
-    return d.strftime('%Y/%m/%d %H:%M')
+    return d.astimezone(timezone.get_current_timezone()).strftime(
+        '%Y/%m/%d %H:%M')
   return timesince.timesince(d) + " ago"
