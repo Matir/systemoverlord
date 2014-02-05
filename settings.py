@@ -379,7 +379,37 @@ CSP_DICT = {
 # 'report-uri': '',
 }
 
+#####
+# Logging
+#####
 
+LOGGING = {
+  'version': 1,
+  'disable_existing_loggers': True,
+  'handlers': {
+    'logfile': {
+      'level': 'INFO',
+      'class':'logging.handlers.RotatingFileHandler',
+      'filename': '/srv/sysoverlord/logs/django.log',
+      'maxBytes': 50*1024*1024,
+      'backupCount': 10,
+      'formatter': 'verbose',
+    },
+  },
+  'formatters': {
+    'verbose': {
+      'format': '%(levelname)s|%(asctime)s|%(module)s|%(process)d|%(thread)d|%(message)s',
+      'datefmt' : "%d/%b/%Y %H:%M:%S"
+    },
+  },
+  'loggers': {
+    'django': {
+      'handlers': ['logfile'],
+      'level': 'INFO',
+      'propagate': True,
+    },
+  },
+}
 
 ##################
 # LOCAL SETTINGS #
