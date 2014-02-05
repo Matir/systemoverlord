@@ -5,6 +5,7 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 
 import mezzanine_pagedown.urls
+import systemoverlord.urls
 
 
 admin.autodiscover()
@@ -33,6 +34,9 @@ urlpatterns = patterns("",
 
     # Markdown previews
     ("^pagedown/", include(mezzanine_pagedown.urls)),
+
+    # SystemOverlord urls
+    ("^systemoverlord/", include(systemoverlord.urls)),
 
     # MEZZANINE'S URLS
     # ----------------

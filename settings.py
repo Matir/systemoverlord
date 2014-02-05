@@ -243,6 +243,7 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     "mezzanine_pagedown",
+    "security",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -280,6 +281,8 @@ MIDDLEWARE_CLASSES = (
     # "mezzanine.core.middleware.SSLRedirectMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
+    "security.middleware.XFrameOptionsMiddleware",
+    "security.middleware.ContentSecurityPolicyMiddleware",
 )
 
 # Store these package names here as they may change in the future since
@@ -307,6 +310,7 @@ RICHTEXT_FILTER_LEVEL = 3
 PAGEDOWN_SERVER_SIDE_PREVIEW = True
 
 DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+INLINE_EDITING_ENABLED = False
 
 ###################
 # DEPLOY SETTINGS #
@@ -347,6 +351,33 @@ CACHES = {
 }
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
+#####
+# SECURITY
+#####
+
+CSP_MODE = 'report-only'
+CSP_DICT = {
+  'default-src': ['self'],
+  'img-src': ['*'],
+  'object-src': ['none'],
+  'media-src': ['none'],
+  'script-src': [
+      'self',
+      'https://platform.twitter.com',
+      'https://ssl.google-analytics.com',
+      'https://apis.google.com',
+  ],
+  'font-src': [
+      'https://themes.googleusercontent.com',
+  ],
+  'style-src': [
+      'self',
+      'unsafe-inline',
+      'https://fonts.googleapis.com',
+  ],
+# 'report-uri': '',
+}
 
 
 
