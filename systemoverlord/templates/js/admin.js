@@ -29,41 +29,37 @@ jQuery(function($) {
 
 // Very basic Markdown editor if {{id}} == id
 jQuery(document).ready(function () {
-var converter_id_content = Markdown.getSanitizingConverter();
-var editor_id_content = new Markdown.Editor(converter_id_content, "-id_content");
-editor_id_content.hooks.set("insertImageDialog", browseMediaLibrary);
-editor_id_content.run();
+  if (typeof Markdown !== "undefined"){
+    var converter_id_content = Markdown.getSanitizingConverter();
+    var editor_id_content = new Markdown.Editor(converter_id_content, "-id_content");
+    editor_id_content.hooks.set("insertImageDialog", browseMediaLibrary);
+    editor_id_content.run();
+    preview_id_content = '#server-preview-id_content';
+    // resize preview along with textarea
+    jQuery('#wmd-input-id_content').on('mouseup', function() {
+      jQuery(preview_id_content).outerHeight(jQuery('#wmd-input-id_content').outerHeight());
+    });
 
+    // scroll preview along with textarea
+    jQuery('#wmd-input-id_content').on('scroll', function() {
+      jQuery(preview_id_content).scrollTop(
+        jQuery('#wmd-input-id_content').scrollTop() / jQuery('#wmd-input-id_content')[0].scrollHeight *
+        jQuery(preview_id_content)[0].scrollHeight);
+    });
 
-preview_id_content = '#server-preview-id_content';
-
-
-// resize preview along with textarea
-jQuery('#wmd-input-id_content').on('mouseup', function() {
-jQuery(preview_id_content).outerHeight(jQuery('#wmd-input-id_content').outerHeight());
-});
-
-// scroll preview along with textarea
-jQuery('#wmd-input-id_content').on('scroll', function() {
-jQuery(preview_id_content).scrollTop(
-  jQuery('#wmd-input-id_content').scrollTop() / jQuery('#wmd-input-id_content')[0].scrollHeight *
-    jQuery(preview_id_content)[0].scrollHeight);
-});
-
-
-// server-side preview
-preview = function() {
-jQuery.post('/pagedown/preview/',
-  {text:jQuery('#wmd-input-id_content').val()},
-  function(data,status) {
-    jQuery('#server-preview-id_content').html(data);
-});
-};
-// update the preview on textarea input
-jQuery('#wmd-input-id_content').on('input onpropertychange', jQuery.debounce(250,preview));
-// update the preview on pagedown editor button clicks
-jQuery('#wmd-button-bar-id_content').on('click', preview);
-// initial preview on loading the page
-jQuery(document).ready(preview);
-
+    // server-side preview
+    preview = function() {
+      jQuery.post('/pagedown/preview/',
+          {text:jQuery('#wmd-input-id_content').val()},
+          function(data,status) {
+            jQuery('#server-preview-id_content').html(data);
+          });
+    };
+    // update the preview on textarea input
+    jQuery('#wmd-input-id_content').on('input onpropertychange', jQuery.debounce(250,preview));
+    // update the preview on pagedown editor button clicks
+    jQuery('#wmd-button-bar-id_content').on('click', preview);
+    // initial preview on loading the page
+    jQuery(document).ready(preview);
+  }
 });
