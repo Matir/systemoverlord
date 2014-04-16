@@ -141,3 +141,8 @@ footer {
 table.codehilitetable {
   width: 100%;
 }
+
+blockquote p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
