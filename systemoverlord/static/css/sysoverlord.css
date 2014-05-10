@@ -62,7 +62,7 @@ a.brand {
   padding: 0;
 }
 
-.tree .active a {
+.tree .active>a {
   background-color: #33b5e5;
 }
 
@@ -90,6 +90,11 @@ footer {
 .pagination li {
   list-style: none;
   display: inline;
+}
+
+.pagination li.active>a {
+  color: white;
+  font-weight: bold;
 }
 
 .pagination .page-info {
