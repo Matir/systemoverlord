@@ -161,7 +161,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "sysoverlord",
         "USER": "sysoverlord",
-        "PASSWORD": "vec3taef0tai2waiXaec",
+        "PASSWORD": "Ahneesh2fahbo1Sh",
         "HOST": "localhost",
         "PORT": "",
     }
@@ -212,7 +212,7 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
-ALLOWED_HOSTS = ['systemoverlord.com']
+ALLOWED_HOSTS = ['systemoverlord.com', '50.116.1.19']
 BLOG_URLS_DATE_FORMAT = 'day'
 BLOG_USE_FEATURED_IMAGE = True
 
@@ -376,7 +376,11 @@ CSP_DICT = {
       'unsafe-inline',
       'https://fonts.googleapis.com',
   ],
-# 'report-uri': '',
+  'frame-src': [
+      'self',
+      'https://*.google.com',
+  ],
+  'report-uri': 'http://cspbuilder.info/report/8329786798890657555/',
 }
 
 #####
