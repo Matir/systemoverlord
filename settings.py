@@ -212,7 +212,7 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
-ALLOWED_HOSTS = ['systemoverlord.com', '50.116.1.19']
+ALLOWED_HOSTS = ['systemoverlord.com', '50.116.1.19', 'www.systemoverlord.com']
 BLOG_URLS_DATE_FORMAT = 'day'
 BLOG_USE_FEATURED_IMAGE = True
 
