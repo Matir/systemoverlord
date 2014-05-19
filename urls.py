@@ -35,9 +35,6 @@ urlpatterns = patterns("",
     # Markdown previews
     ("^pagedown/", include(mezzanine_pagedown.urls)),
 
-    # SystemOverlord urls
-    ("^systemoverlord/", include(systemoverlord.urls)),
-
     # MEZZANINE'S URLS
     # ----------------
     # ADD YOUR OWN URLPATTERNS *ABOVE* THE LINE BELOW.
