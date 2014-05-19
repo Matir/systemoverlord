@@ -147,7 +147,24 @@ table.codehilitetable {
   width: 100%;
 }
 
+td.linenos {
+  vertical-align: top;
+  min-width: 38px;
+}
+
+td.code div.codehilite pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  margin-bottom: 0;
+}
+
 blockquote p {
   font-size: 14px;
   margin-bottom: 12px;
+}
+
+/* Admin */
+.wmd-preview {
+  margin-top: 0;
 }
