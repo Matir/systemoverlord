@@ -165,6 +165,6 @@ blockquote p {
 }
 
 /* Admin */
-.wmd-preview {
+div.wmd-preview {
   margin-top: 0;
 }
