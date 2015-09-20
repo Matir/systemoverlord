@@ -5,5 +5,3 @@
 .coverage
 local_settings.py
 /static
-.*.swp
-*.tar

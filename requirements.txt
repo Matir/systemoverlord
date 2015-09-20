@@ -1,0 +1,2 @@
+Mezzanine==4.0.1
+mezzanine-pagedown==0.8
