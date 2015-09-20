@@ -76,7 +76,7 @@
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
-USE_SOUTH = True
+USE_SOUTH = False
 
 
 ########################
@@ -243,7 +243,6 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     "mezzanine_pagedown",
-    "security",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -282,8 +281,6 @@ MIDDLEWARE_CLASSES = (
     # "mezzanine.core.middleware.SSLRedirectMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
-    "security.middleware.XFrameOptionsMiddleware",
-    "security.middleware.ContentSecurityPolicyMiddleware",
 )
 
 # Store these package names here as they may change in the future since
