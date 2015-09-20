@@ -152,6 +152,10 @@ td.linenos {
   min-width: 38px;
 }
 
+td.code {
+  max-width: 600px;
+}
+
 td.code div.codehilite pre {
   white-space: pre;
   word-wrap: normal;
