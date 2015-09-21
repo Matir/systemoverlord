@@ -37,24 +37,16 @@ h6.blog-byline {
   float: right;
 }
 
-a.brand {
-  font-size: 180%;
+a.navbar-brand {
+  font-size: 160%;
 }
 
-.nav-collapse div.form-group {
-  display: inline;
+.navbar-fixed-top p.navbar-text {
+  padding-top: 5px;
 }
 
-.nav-collapse div.form-group input,
-.nav-collapse div.form-group select {
-  width: 160px;
-  display: inline;
-  height: auto;
-}
-
-.navbar-fixed-top .nav-collapse {
-  float: right;
-  width: 565px;
+div.navbar-inner form.navbar-form.navbar-right {
+  margin-right: 0px;
 }
 
 .navbar-fixed-top .navbar-text {
