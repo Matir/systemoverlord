@@ -1,3 +1,11 @@
+h2 {
+  font-size: 2.5em;
+}
+
+h3, .h3 {
+  font-size: 1.8em;
+}
+
 .img-center {
 	display: block;
 	margin-left: auto;
@@ -37,21 +45,21 @@ h6.blog-byline {
   float: right;
 }
 
+div.navbar.navbar-fixed-top {
+  background-color: #000;
+}
+
 a.navbar-brand {
   font-size: 160%;
 }
 
 .navbar-fixed-top p.navbar-text {
   padding-top: 5px;
+  float: left;
 }
 
 div.navbar-inner form.navbar-form.navbar-right {
   margin-right: 0px;
-}
-
-.navbar-fixed-top .navbar-text {
-  float: left;
-  padding: 0;
 }
 
 .tree .active>a {
@@ -117,8 +125,12 @@ footer {
 }
 
 /* Right side bar */
+.right .panel {
+  padding-left: 5px;
+}
+
 .right .panel ul li {
-  margin-left: -10px;
+  margin-left: 20px;
   list-style-type: circle;
 }
 
