@@ -2,6 +2,10 @@ h2 {
   font-size: 2.5em;
 }
 
+h2:empty {
+  display: none;
+}
+
 h3, .h3 {
   font-size: 1.8em;
 }
@@ -147,6 +151,18 @@ footer {
   padding-right: 4px;
 }
 
+blockquote p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+
+/** Code highlighting */
+code {
+  background-color: #333;
+  color: #3cf;
+}
+
 table.codehilitetable {
   width: 100%;
 }
@@ -160,16 +176,15 @@ td.code {
   max-width: 600px;
 }
 
-td.code div.codehilite pre {
+div.codehilite {
+  margin-bottom: 15px;
+}
+
+div.codehilite pre {
   white-space: pre;
   word-wrap: normal;
   overflow-x: auto;
   margin-bottom: 0;
-}
-
-blockquote p {
-  font-size: 14px;
-  margin-bottom: 12px;
 }
 
 /* Admin */
