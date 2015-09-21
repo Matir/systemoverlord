@@ -2,6 +2,10 @@ h2 {
   font-size: 2.5em;
 }
 
+h2:empty {
+  display: none;
+}
+
 h3, .h3 {
   font-size: 1.8em;
 }
@@ -147,6 +151,17 @@ footer {
   padding-right: 4px;
 }
 
+blockquote p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/** Code highlighting */
+code {
+  background-color: #333;
+  color: #93a1a1;
+}
+
 table.codehilitetable {
   width: 100%;
 }
@@ -157,22 +172,55 @@ td.linenos {
 }
 
 td.code {
-  max-width: 600px;
+  width: 100%;
 }
 
-td.code div.codehilite pre {
+td.linenos pre, td.code pre, div.codehilite pre {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #93a1a1;
+}
+
+div.codehilite {
+  margin-bottom: 15px;
+}
+
+div.codehilite pre {
   white-space: pre;
   word-wrap: normal;
   overflow-x: auto;
   margin-bottom: 0;
 }
 
-blockquote p {
-  font-size: 14px;
-  margin-bottom: 12px;
+/** Comment form */
+form#comment .form-group,
+form.comment-reply-form .form-group {
+  float: left;
 }
 
-/* Admin */
+form#comment .form-group + .form-group,
+form.comment-reply-form .form-group + .form-group {
+  margin-left: 20px;
+}
+
+form#comment .form-group.input_id_comment,
+form.comment-reply-form .form-group.input_id_comment {
+  clear: both;
+  float: none;
+  margin-left: 0;
+}
+
+form#comment .form-group.input_id_comment textarea,
+form.comment-reply-form .form-group.input_id_comment textarea {
+  max-width: 653px;
+  min-width: 653px;
+}
+
+.comment-author {
+  background-color: #222;
+}
+
+/** Admin */
 div.wmd-preview {
   margin-top: 0;
 }
