@@ -16,27 +16,19 @@
 {% endifinstalled %}
 
 {% compress css %}
-<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap3-cyborg.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-<link rel="stylesheet" href="{% static "css/bootstrap-responsive.css" %}">
 <link rel="stylesheet" href="{% static "css/sysoverlord.css" %}">
 <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/rtl.css" %}">
 {% endif %}
-{% ifinstalled cartridge.shop %}
-<link rel="stylesheet" href="{% static "css/cartridge.css" %}">
-{% if LANGUAGE_BIDI %}
-<link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
-{% endif %}
-{% endifinstalled %}
 {% block extra_css %}{% endblock %}
 {% endcompress %}
 
 {% compress js %}
-<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
-<script src="{% static "js/bootstrap.js" %}"></script>
-<script src="{% static "js/bootstrap-extras.js" %}"></script>
+<script src="{% static "js/jquery-1.11.min.js" %}"></script>
+<script src="{% static "js/bootstrap3.js" %}"></script>
 <script src="{% static "js/sysoverlord.js" %}"></script>
 {% endcompress %}
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
@@ -58,11 +50,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </a>
-    {% if settings.SITE_TITLE %}<a class="brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
+    {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
     {% if settings.SITE_TAGLINE %}<p class="navbar-text">{{ settings.SITE_TAGLINE }}</p>{% endif %}
-    <div class="nav-collapse">
-        {% search_form "all" %}
-    </div>
+    {% page_menu "pages/menus/dropdown.html" %}
+    {% search_form "all" %}
 </div>
 </div>
 </div>
@@ -89,42 +80,33 @@
 <div class="container">
 <div class="row">
 
-<div class="span2 left">
-    {% block left_panel %}
-    <div class="panel tree">{% page_menu "pages/menus/tree.html" %}</div>
-    <div class="social-media-box" style="padding-top:32px">
-    <a href="//plus.google.com/108572416085761060728?prsrc=3"
-      rel="publisher" target="_top"
-      style="text-decoration:none;padding-left:46px;padding-right:20px;">
-      <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
-    </a>
-    <a href="//twitter.com/matir">
-      <img src='{% static "img/twitter_icon.png" %}' style='height:32px;width:32px;border:0'>
-    </a>
-    </div>
-    {% endblock %}
-</div>
-
-<div class="span7 middle">
+<div class="col-md-9 left">
     <h2>{% block title %}{% endblock %}</h2>
     {% block main %}{% endblock %}
 </div>
 
-<div class="span3 right">
-    {% nevercache %}
-    {% include "includes/user_panel.html" %}
-    {% endnevercache %}
+<div class="col-md-3 right">
     <div class="panel">
     {% block right_panel %}
     <h4>About</h4>
     <p><small>David is a security engineer for a Fortune 100 .com by day,
     security researcher/CTF player by night.  He writes code, plays CTFs,
     and generally hacks all the things.</small></p>
-    <a href='https://www.eff.org/'><img src='{% static "img/eff_member_2014.png" %}'
-	alt='EFF Member' class="img-rounded img-center" /></a>   
+    <a href='https://www.eff.org/'><img src='{% static "img/eff_member_2015.png" %}'
+      alt='EFF Member' class="img-rounded img-center" /></a>   
     {% ifinstalled mezzanine.twitter %}
     {% include "twitter/tweets.html" %}
     {% endifinstalled %}
+    <div class="social-media-box" style="padding-top:32px">
+      <a href="//plus.google.com/108572416085761060728?prsrc=3"
+        rel="publisher" target="_top"
+        style="text-decoration:none;padding-left:46px;padding-right:20px;">
+        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
+      </a>
+      <a href="//twitter.com/matir">
+        <img src='{% static "img/twitter_icon.png" %}' style='height:32px;width:32px;border:0'>
+      </a>
+    </div>
     {% endblock %}
     </div>
 </div>
@@ -135,7 +117,7 @@
 <footer>
 <div class="container">
 <p>
-&copy; Copyright 2014 David Tomaschik.  Views on this site are my own and not my employer's.
+&copy; Copyright 2015 David Tomaschik.  Views on this site are my own and not my employer's.
 </p>
 <p>
     {% trans "Powered by" %}

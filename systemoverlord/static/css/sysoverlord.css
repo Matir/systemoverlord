@@ -1,3 +1,15 @@
+h2 {
+  font-size: 2.5em;
+}
+
+h2:empty {
+  display: none;
+}
+
+h3, .h3 {
+  font-size: 1.8em;
+}
+
 .img-center {
 	display: block;
 	margin-left: auto;
@@ -37,29 +49,21 @@ h6.blog-byline {
   float: right;
 }
 
-a.brand {
-  font-size: 180%;
+div.navbar.navbar-fixed-top {
+  background-color: #000;
 }
 
-.nav-collapse div.form-group {
-  display: inline;
+a.navbar-brand {
+  font-size: 160%;
 }
 
-.nav-collapse div.form-group input,
-.nav-collapse div.form-group select {
-  width: 160px;
-  display: inline;
-  height: auto;
-}
-
-.navbar-fixed-top .nav-collapse {
-  float: right;
-  width: 565px;
-}
-
-.navbar-fixed-top .navbar-text {
+.navbar-fixed-top p.navbar-text {
+  padding-top: 5px;
   float: left;
-  padding: 0;
+}
+
+div.navbar-inner form.navbar-form.navbar-right {
+  margin-right: 0px;
 }
 
 .tree .active>a {
@@ -117,17 +121,16 @@ footer {
 }
 
 .blog-archive-div h6 {
-  font-size: 115%;
-  padding-left: 15px;
+  padding-left: 20px;
   margin-top: 0;
   margin-bottom: 3px;
   cursor: pointer;
+  color: #2a9fd6;
 }
 
 /* Right side bar */
-.right .panel ul li {
-  margin-left: -10px;
-  list-style-type: circle;
+.right .panel {
+  padding-left: 5px;
 }
 
 .right .panel ul.tag-cloud {
@@ -143,6 +146,34 @@ footer {
   padding-right: 4px;
 }
 
+blockquote p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/** Lists */
+.list-unstyled {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+  text-indent: -1.2em;
+}
+
+.list-unstyled li {
+  list-style-type: none;
+}
+
+.list-unstyled li:before {
+  content: "\27a4";
+  padding-right: .3em;
+}
+
+/** Code highlighting */
+code {
+  background-color: #333;
+  color: #93a1a1;
+}
+
 table.codehilitetable {
   width: 100%;
 }
@@ -153,22 +184,55 @@ td.linenos {
 }
 
 td.code {
-  max-width: 600px;
+  width: 100%;
 }
 
-td.code div.codehilite pre {
+td.linenos pre, td.code pre, div.codehilite pre {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #93a1a1;
+}
+
+div.codehilite {
+  margin-bottom: 15px;
+}
+
+div.codehilite pre {
   white-space: pre;
   word-wrap: normal;
   overflow-x: auto;
   margin-bottom: 0;
 }
 
-blockquote p {
-  font-size: 14px;
-  margin-bottom: 12px;
+/** Comment form */
+form#comment .form-group,
+form.comment-reply-form .form-group {
+  float: left;
 }
 
-/* Admin */
+form#comment .form-group + .form-group,
+form.comment-reply-form .form-group + .form-group {
+  margin-left: 20px;
+}
+
+form#comment .form-group.input_id_comment,
+form.comment-reply-form .form-group.input_id_comment {
+  clear: both;
+  float: none;
+  margin-left: 0;
+}
+
+form#comment .form-group.input_id_comment textarea,
+form.comment-reply-form .form-group.input_id_comment textarea {
+  max-width: 653px;
+  min-width: 653px;
+}
+
+.comment-author {
+  background-color: #222;
+}
+
+/** Admin */
 div.wmd-preview {
   margin-top: 0;
 }
