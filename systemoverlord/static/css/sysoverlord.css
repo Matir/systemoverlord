@@ -121,21 +121,16 @@ footer {
 }
 
 .blog-archive-div h6 {
-  font-size: 115%;
-  padding-left: 15px;
+  padding-left: 20px;
   margin-top: 0;
   margin-bottom: 3px;
   cursor: pointer;
+  color: #2a9fd6;
 }
 
 /* Right side bar */
 .right .panel {
   padding-left: 5px;
-}
-
-.right .panel ul li {
-  margin-left: 20px;
-  list-style-type: circle;
 }
 
 .right .panel ul.tag-cloud {
@@ -154,6 +149,23 @@ footer {
 blockquote p {
   font-size: 14px;
   margin-bottom: 12px;
+}
+
+/** Lists */
+.list-unstyled {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+  text-indent: -1.2em;
+}
+
+.list-unstyled li {
+  list-style-type: none;
+}
+
+.list-unstyled li:before {
+  content: "\27a4";
+  padding-right: .3em;
 }
 
 /** Code highlighting */
