@@ -1,0 +1,12 @@
+APT Packages: python-pip libpq-dev python-dev 
+
+Create database as postgres user:
+  createuser -P sysoverlord
+  createdb -O sysoverlord sysoverlord
+
+In local_settings.py:
+- DATABASES
+- ALLOWED_HOSTS
+- SECRET_KEY
+- NEVERCACHE_KEY
+- (optional) Memcache settings
