@@ -8,7 +8,7 @@
     {% editable comment.is_public comment.is_removed %}
     {% if not comment.is_removed and comment.is_public or request.user.is_staff %}
     {% if comment.url %}
-    <a href="{{ comment.url }}">
+    <a href="{{ comment.url }}" rel="nofollow">
         <img class="pull-left media-object" src="{% gravatar_url comment.email %}">
     </a>
     <div class="media-body">
@@ -19,7 +19,7 @@
         <h4 class="media-heading">{{ comment.user_name }}
     {% endif %}
             <small class="timespan">
-                {% blocktrans with sometime=comment.submit_date|optional_timesince %}{{ sometime }} ago{% endblocktrans %}
+                {% blocktrans with sometime=comment.submit_date|optional_timesince %}{{ sometime }}{% endblocktrans %}
             </small>
         </h4>
     <p>{{ comment.comment|comment_filter }}</p>
@@ -51,7 +51,7 @@
         {% else %}
         <span class="glyphicon glyphicon-warning-sign"></span> {% trans "Comment awaiting approval" %}
         {% endif %}
-        <small class="timespan">{% blocktrans with sometime=comment.submit_date|optional_timesince %}{{ sometime }} ago{% endblocktrans %}</small>
+        <small class="timespan">{% blocktrans with sometime=comment.submit_date|optional_timesince %}{{ sometime }}{% endblocktrans %}</small>
     </p>
     {% endif %}
 
