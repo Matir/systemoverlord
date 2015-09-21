@@ -173,7 +173,13 @@ td.linenos {
 }
 
 td.code {
-  max-width: 600px;
+  width: 100%;
+}
+
+td.linenos pre, td.code pre, div.codehilite pre {
+  background-color: #333;
+  border: 1px solid #444;
+  color: #93a1a1;
 }
 
 div.codehilite {
