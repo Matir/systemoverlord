@@ -1,2 +1,4 @@
 Mezzanine==4.0.1
 mezzanine-pagedown==0.8
+django_compressor==1.5
+html5lib
